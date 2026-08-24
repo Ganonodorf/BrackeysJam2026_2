@@ -10,8 +10,8 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
-height = 1.8
+radius = 0.2109375
+height = 1.3262695
 
 [sub_resource type="SphereMesh" id="SphereMesh_qqi21"]
 radius = 0.05
@@ -27,7 +27,7 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=480875642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66313475, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="." unique_id=73843834]
@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=2014620528]
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=748236787]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -2)
 collision_mask = 3
 
 [node name="Hand" type="Node3D" parent="Head" unique_id=528178174]

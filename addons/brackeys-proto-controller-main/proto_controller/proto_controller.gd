@@ -55,7 +55,7 @@ var freeflying : bool = false
 
 ## My references
 @onready var raycast = $Head/Camera3D/RayCast3D
-@onready var hand = $Head/Hand
+@onready var hand: Node3D = $Head/Hand
 
 func _ready() -> void:
 	check_input_mappings()
@@ -82,10 +82,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	var object = raycast.get_collider()
-	if(raycast.is_colliding() && object.is_in_group("pickable") && Input.is_action_pressed("interact")):
-		object.global_position = hand.global_position
-		object.global_rotation = hand.global_rotation
-		object.collision_layer = 2
+	if(raycast.is_colliding() && object.is_in_group("pickable") && Input.is_action_just_pressed("interact")):
+		##object.collision_layer = 2
+		object._pick(hand)
+	
+	if(raycast.is_colliding() && object.is_in_group("pickable") && Input.is_action_just_released("interact")):
+		##object.collision_layer = 1
+		object._unpick()
+
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else

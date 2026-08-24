@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://yn3y3mpu0p8u"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_qrja6"]
+[ext_resource type="Script" uid="uid://cftah7efm4m3t" path="res://pickable.gd" id="2_co24e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,10 +21,27 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="BoxMesh" id="BoxMesh_co24e"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qrja6"]
-radius = 0.1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co24e"]
+albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_co24e"]
+material = SubResource("StandardMaterial3D_co24e")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feb8i"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kj3p2"]
+material = SubResource("StandardMaterial3D_feb8i")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc7k4"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jn4p2"]
+material = SubResource("StandardMaterial3D_lc7k4")
 radius = 0.05
 height = 0.1
 
@@ -78,6 +96,7 @@ size = Vector3(3, 1.9106445, 1)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1826696289 groups=["pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2295444, -8.92568)
+script = ExtResource("2_co24e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1964967796]
 shape = SubResource("BoxShape3D_qrja6")
@@ -85,10 +104,14 @@ shape = SubResource("BoxShape3D_qrja6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1173795418]
 mesh = SubResource("BoxMesh_co24e")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1369473850]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.27274704)
-shape = SubResource("SphereShape3D_qrja6")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D" unique_id=1916149675]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.27213478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
 mesh = SubResource("SphereMesh_co24e")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D" unique_id=518041387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+mesh = SubResource("SphereMesh_kj3p2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D" unique_id=685629701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("SphereMesh_jn4p2")

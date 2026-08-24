@@ -20,21 +20,22 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(is_picked):
 		if(Input.is_action_pressed(rotation_right)):
-			rotate_y(0.1)
+			global_rotate(Vector3.UP, 0.1)
 		
 		if(Input.is_action_pressed(rotation_left)):
-			rotate_y(-0.1)
+			global_rotate(Vector3.UP, -0.1)
 		
 		if(Input.is_action_pressed(rotation_up)):
-			rotate_x(-0.1)
+			global_rotate(Vector3.RIGHT, -0.1)
 		
 		if(Input.is_action_pressed(rotation_down)):
-			rotate_x(0.1)
+			global_rotate(Vector3.RIGHT, 0.1)
 
 func _pick(new_picador: Node3D) -> void:
 	reparent(new_picador)
 	freeze = true
 	is_picked = true
+	
 
 func _unpick() -> void:
 	reparent(get_tree().root)

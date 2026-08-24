@@ -35,7 +35,6 @@ func _pick(new_picador: Node3D) -> void:
 	reparent(new_picador)
 	freeze = true
 	is_picked = true
-	
 
 func _unpick() -> void:
 	reparent(get_tree().root)

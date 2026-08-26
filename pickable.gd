@@ -1,7 +1,10 @@
 extends RigidBody3D
 
+class_name Pickable
+
 var is_picked: bool = false
 var rotation_bias: Vector3 = Vector3.ZERO
+@onready var outline_mesh = $MeshInstance3D/Outline
 
 @export var rotation_up : String = "vertical_rotation_up"
 @export var rotation_down : String = "vertical_rotation_down"
@@ -40,6 +43,12 @@ func _unpick() -> void:
 	reparent(get_tree().root)
 	freeze = false
 	is_picked = false
+
+func _highlight() -> void:
+	outline_mesh.visible = true
+
+func _unhighlight() -> void:
+	outline_mesh.visible = false
 
 #func _put_horizontal() -> void:
 	#var xAngle: float  = Vector3.UP.angle_to(transform.basis.x)

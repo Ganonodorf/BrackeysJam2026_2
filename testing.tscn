@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://yn3y3mpu0p8u"]
 
+[ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="1_feb8i"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://cftah7efm4m3t" path="res://pickable.gd" id="2_co24e"]
-[ext_resource type="PackedScene" uid="uid://dlir1btsbscs3" path="res://pickables/milk.tscn" id="3_kj3p2"]
-[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order_box/caja.tscn" id="3_lc7k4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -75,6 +74,12 @@ material = SubResource("StandardMaterial3D_11ixh")
 size = Vector3(0.3, 0.3, 0.2)
 
 [node name="Node3D" type="Node3D" unique_id=244791525]
+
+[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
+script = ExtResource("1_feb8i")
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.926121, 2.6870525, -8.993267)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1071560573]
 environment = SubResource("Environment_co24e")
@@ -150,21 +155,6 @@ mesh = SubResource("SphereMesh_kj3p2")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D" unique_id=685629701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("SphereMesh_jn4p2")
-
-[node name="Caja2" parent="." unique_id=620450843 instance=ExtResource("3_lc7k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7369161, -9.000828)
-
-[node name="Milk" parent="." unique_id=1877024235 instance=ExtResource("3_kj3p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3034205, 1.800216, -8.7468815)
-
-[node name="Milk2" parent="." unique_id=278711794 instance=ExtResource("3_kj3p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9306443, 1.8749373, -8.815502)
-
-[node name="Milk3" parent="." unique_id=1058157883 instance=ExtResource("3_kj3p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9306443, 1.8749373, -9.1905)
-
-[node name="Milk4" parent="." unique_id=1812474526 instance=ExtResource("3_kj3p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3526094, 1.8749373, -9.1905)
 
 [node name="Eggs" type="RigidBody3D" parent="." unique_id=1259200089 groups=["pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81497157, 1.6841216, -6.46545)

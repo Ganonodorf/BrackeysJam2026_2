@@ -10,6 +10,12 @@ func _append(pickable: Pickable):
 func _size() -> int:
 	return items.size()
 
+func _has(pickable: Pickable) -> bool:
+	return items.has(pickable)
+
+func _count(pickable: Pickable) -> int:
+	return items.count(pickable)
+
 func _to_string() -> String:
 	var return_string: String = "Order: "
 	for item in items:

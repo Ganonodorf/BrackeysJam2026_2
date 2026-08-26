@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
-JamGame="*uid://10iwu5reljf7"
 
 [dialogic]
 

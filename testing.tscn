@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cftah7efm4m3t" path="res://pickable.gd" id="2_co24e"]
 [ext_resource type="PackedScene" uid="uid://dlir1btsbscs3" path="res://pickables/milk.tscn" id="3_kj3p2"]
 [ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order_box/caja.tscn" id="3_lc7k4"]
+[ext_resource type="Script" uid="uid://bgu2p4kybn1jy" path="res://order_generator.gd" id="6_jn4p2"]
+[ext_resource type="Script" uid="uid://ca2lxacisy2hi" path="res://order.gd" id="6_ybq6y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -136,6 +138,7 @@ script = ExtResource("2_co24e")
 shape = SubResource("BoxShape3D_qrja6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1173795418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7802458)
 mesh = SubResource("BoxMesh_co24e")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D" unique_id=1916149675]
@@ -155,7 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7369161, -9.000828)
 order = [NodePath("../Milk"), NodePath("../Milk2"), NodePath("../Milk3"), NodePath("../Milk4")]
 
 [node name="Milk" parent="." unique_id=1877024235 instance=ExtResource("3_kj3p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4018254, 1.8749373, -8.815502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3034205, 1.800216, -8.7468815)
 
 [node name="Milk2" parent="." unique_id=278711794 instance=ExtResource("3_kj3p2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9306443, 1.8749373, -8.815502)
@@ -202,3 +205,9 @@ debug_color = Color(0, 11.708403, 13.539555, 1)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Beer" unique_id=1990631914]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15252364, 0)
 mesh = SubResource("PrismMesh_co24e")
+
+[node name="Order" type="Node3D" parent="." unique_id=1652443742]
+script = ExtResource("6_ybq6y")
+
+[node name="Order_Generator" type="Node3D" parent="." unique_id=3525198]
+script = ExtResource("6_jn4p2")

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_qrja6"]
 [ext_resource type="Script" uid="uid://cftah7efm4m3t" path="res://pickable.gd" id="2_co24e"]
-[ext_resource type="PackedScene" uid="uid://f17kxnqhew4b" path="res://models/Caja.blend" id="3_feb8i"]
-[ext_resource type="PackedScene" uid="uid://dlir1btsbscs3" path="res://models/pickables/milk.tscn" id="3_kj3p2"]
+[ext_resource type="PackedScene" uid="uid://dlir1btsbscs3" path="res://pickables/milk.tscn" id="3_kj3p2"]
+[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order_box/caja.tscn" id="3_lc7k4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -150,8 +150,9 @@ mesh = SubResource("SphereMesh_kj3p2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("SphereMesh_jn4p2")
 
-[node name="Caja" parent="." unique_id=620450843 instance=ExtResource("3_feb8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7004232, -8.91751)
+[node name="Caja2" parent="." unique_id=620450843 node_paths=PackedStringArray("order") instance=ExtResource("3_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7369161, -9.000828)
+order = [NodePath("../Milk"), NodePath("../Milk2"), NodePath("../Milk3"), NodePath("../Milk4")]
 
 [node name="Milk" parent="." unique_id=1877024235 instance=ExtResource("3_kj3p2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4018254, 1.8749373, -8.815502)

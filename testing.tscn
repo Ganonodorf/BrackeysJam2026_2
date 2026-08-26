@@ -30,9 +30,6 @@ light_color = Color(0.9773008, 0.83801377, 0.80501366, 1)
 light_energy = 0.25
 shadow_enabled = true
 
-[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
-script = ExtResource("1_feb8i")
-
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7062986, 2.0439115, -8.993267)
 
@@ -83,6 +80,9 @@ size = Vector3(27, 13, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85113525, 1, -9)
 use_collision = true
 size = Vector3(4.7022705, 1, 1)
+
+[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
+script = ExtResource("1_feb8i")
 
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]

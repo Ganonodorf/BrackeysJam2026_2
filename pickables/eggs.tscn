@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://cuyx4wbttjlxn"]
+
+[ext_resource type="Script" uid="uid://cftah7efm4m3t" path="res://pickables/pickable.gd" id="1_qm336"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn4p2"]
+size = Vector3(0.3, 0.2, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ybq6y"]
+size = Vector3(0.3, 0.2, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_11ixh"]
+size = Vector3(0.3, 0.1, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w078t"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qm336"]
+_surfaces = [{
+"aabb": AABB(-0.161547, -0.11154701, -0.211547, 0.323094, 0.22309402, 0.423094),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("lGwlvsJy5D3Hn1g+lGwlPsJy5D3Hn1i+lGwlPsJy5D3Hn1g+lGwlvsJy5D3Hn1i+lGwlvsJy5L3Hn1g+lGwlPsJy5L3Hn1i+lGwlPsJy5L3Hn1g+lGwlvsJy5L3Hn1i+lGwlPsJy5D3Hn1g+lGwlvsJy5D3Hn1i+lGwlPsJy5D3Hn1i+lGwlvsJy5D3Hn1g+lGwlPsJy5L3Hn1g+lGwlvsJy5L3Hn1i+lGwlPsJy5L3Hn1i+lGwlvsJy5L3Hn1g+lGwlPsJy5D3Hn1g+lGwlvsJy5L3Hn1g+lGwlvsJy5D3Hn1g+lGwlPsJy5L3Hn1g+lGwlPsJy5D3Hn1i+lGwlvsJy5L3Hn1i+lGwlvsJy5D3Hn1i+lGwlPsJy5L3Hn1i+/3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm336"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Eggs" type="RigidBody3D" unique_id=469116719 groups=["pickable"]]
+mass = 0.2
+script = ExtResource("1_qm336")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1164615974]
+shape = SubResource("BoxShape3D_jn4p2")
+
+[node name="MeshGood" type="MeshInstance3D" parent="." unique_id=213775014]
+mesh = SubResource("BoxMesh_ybq6y")
+
+[node name="MeshBad" type="MeshInstance3D" parent="." unique_id=1962845745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043927327, 0)
+visible = false
+mesh = SubResource("BoxMesh_11ixh")
+surface_material_override/0 = SubResource("StandardMaterial3D_w078t")
+
+[node name="Outline" type="MeshInstance3D" parent="." unique_id=1602576843]
+visible = false
+mesh = SubResource("ArrayMesh_qm336")
+surface_material_override/0 = SubResource("StandardMaterial3D_qm336")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

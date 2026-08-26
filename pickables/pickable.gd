@@ -4,7 +4,9 @@ class_name Pickable
 
 var is_picked: bool = false
 var rotation_bias: Vector3 = Vector3.ZERO
-@onready var outline_mesh = $MeshInstance3D/Outline
+@onready var outline_mesh = $Outline
+@onready var good_mesh = $MeshGood
+@onready var bad_mesh = $MeshBad
 
 @export var rotation_up : String = "vertical_rotation_up"
 @export var rotation_down : String = "vertical_rotation_down"
@@ -15,6 +17,8 @@ var rotation_bias: Vector3 = Vector3.ZERO
 @export var horizontal_rotation_speed : Vector3 = Vector3(0, 0.1, 0)
 
 var original_parent: Node3D
+
+var is_broken: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -71,3 +75,14 @@ func _unhighlight() -> void:
 	#print("-xAngle: ", minusxAngle)
 	#print("-yAngle: ", minusyAngle)
 	#print("-zAngle: ", minuszAngle)
+
+
+func _on_body_entered(body: Node) -> void:
+	print("socorro")
+	if(body.is_in_group("pickable") && !is_broken && body.mass > mass):
+		_break()
+
+func _break():
+	is_broken = true
+	good_mesh.visible = false
+	bad_mesh.visible = true

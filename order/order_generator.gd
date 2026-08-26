@@ -6,6 +6,10 @@ var order_scene = preload("res://order/order.tscn")
 
 @export var items_to_generate: Array[Pickable]
 
+func _ready() -> void:
+	for child in get_children():
+		items_to_generate.append(child)
+
 func _create_order(min: int, max: int) -> Order:
 	var new_order: Order = order_scene.instantiate()
 	add_child(new_order)

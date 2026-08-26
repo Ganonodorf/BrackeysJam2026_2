@@ -18,7 +18,7 @@ func _ready() -> void:
 	_create_new_order()
 
 func _create_new_order():
-	current_order = order_generator._create_order(1, 1)
+	current_order = order_generator._create_order(3, 3)
 	
 	order_box._set_order(current_order)
 	

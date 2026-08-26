@@ -10,6 +10,8 @@ var hand_initial_position: float = 0
 
 var objects_at_reach: Array[Pickable]
 
+var object_picked: Pickable
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hand_initial_position = self.position.z
@@ -18,10 +20,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:	
 	if(Input.is_action_just_pressed("interact") && objects_at_reach.size() > 0):
-		objects_at_reach[0]._pick(self)
+		object_picked = objects_at_reach[0]
+		object_picked._pick(self)
 	
-	if(Input.is_action_just_released("interact") && objects_at_reach.size() > 0):
-		objects_at_reach[0]._unpick()
+	if(Input.is_action_just_released("interact") && object_picked != null):
+		object_picked._unpick()
 
 func _unhandled_input(event: InputEvent) -> void:
 		if Input.is_action_just_pressed(input_get_away) && !_is_too_far():

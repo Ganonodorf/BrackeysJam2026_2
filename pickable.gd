@@ -29,10 +29,10 @@ func _process(delta: float) -> void:
 			global_rotate(Vector3.UP, -0.1)
 		
 		if(Input.is_action_pressed(rotation_up)):
-			global_rotate(Vector3.RIGHT, -0.1)
+			global_rotate(get_parent().global_transform.basis.x, -0.1)
 		
 		if(Input.is_action_pressed(rotation_down)):
-			global_rotate(Vector3.RIGHT, 0.1)
+			global_rotate(get_parent().global_transform.basis.x, 0.1)
 
 func _pick(new_picador: Node3D) -> void:
 	reparent(new_picador)

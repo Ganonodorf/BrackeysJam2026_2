@@ -1,6 +1,6 @@
 extends Node3D
 
-class_name order_box
+class_name Order_box
 
 @export var order: Array[Pickable]
 var inside: Array[Pickable]

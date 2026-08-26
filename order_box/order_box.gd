@@ -2,15 +2,11 @@ extends Node3D
 
 class_name Order_box
 
+signal order_fulfilled
+signal order_unfulfilled
+
 @export var order: Order
 var inside: Array[Pickable]
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if(_is_order_completed()):
-		print("estoy completo")
-	else:
-		print("No estoy completo")
 
 func _set_order(new_order: Order):
 	order = new_order
@@ -18,10 +14,16 @@ func _set_order(new_order: Order):
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("pickable")):
 		inside.append(body)
+		
+		if(_is_order_completed()):
+			order_fulfilled.emit()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if(body.is_in_group("pickable")):
 		inside.erase(body)
+		
+		if(!_is_order_completed()):
+			order_unfulfilled.emit()
 
 func _is_order_completed() -> bool:
 	return _inside_number_is_equal_to_order() && _inside_contains_same_elements_than_order()

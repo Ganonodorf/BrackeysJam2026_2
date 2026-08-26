@@ -8,11 +8,15 @@ script = ExtResource("1_umpjc")
 items_to_generate = [NodePath("Milk"), NodePath("Milk2"), NodePath("Milk3"), NodePath("Milk4"), NodePath("Milk5")]
 
 [node name="Milk" parent="." unique_id=1877024235 instance=ExtResource("2_787nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7892277)
 
 [node name="Milk2" parent="." unique_id=1374788621 instance=ExtResource("2_787nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.39908952)
 
 [node name="Milk3" parent="." unique_id=67680510 instance=ExtResource("2_787nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3683416)
 
 [node name="Milk4" parent="." unique_id=1530253569 instance=ExtResource("2_787nu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7957754)
 
 [node name="Milk5" parent="." unique_id=1279024440 instance=ExtResource("2_787nu")]

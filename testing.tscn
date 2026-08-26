@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="1_feb8i"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_qrja6"]
-[ext_resource type="Script" uid="uid://cftah7efm4m3t" path="res://pickable.gd" id="2_co24e"]
+[ext_resource type="PackedScene" uid="uid://b1udr8p5myt0o" path="res://scripts/order_generator.tscn" id="3_kj3p2"]
+[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order_box/order_box.tscn" id="3_lc7k4"]
+[ext_resource type="PackedScene" uid="uid://dhbcwsnse2q8f" path="res://order_button.tscn" id="5_lc7k4"]
+[ext_resource type="Script" uid="uid://d2h48hsk1q0ke" path="res://order_button.gd" id="6_jn4p2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,79 +19,32 @@ background_mode = 2
 sky = SubResource("Sky_qrja6")
 tonemap_mode = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qrja6"]
-size = Vector3(0.2, 0.5, 0.2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_co24e"]
-size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co24e"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_co24e"]
-material = SubResource("StandardMaterial3D_co24e")
-radius = 0.05
-height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feb8i"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_kj3p2"]
-material = SubResource("StandardMaterial3D_feb8i")
-radius = 0.05
-height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc7k4"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_jn4p2"]
-material = SubResource("StandardMaterial3D_lc7k4")
-radius = 0.05
-height = 0.1
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_feb8i"]
-size = Vector3(0.4, 0.1, 0.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn4p2"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kj3p2"]
-material = SubResource("StandardMaterial3D_jn4p2")
-size = Vector3(0.4, 0.1, 0.2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lc7k4"]
-size = Vector3(0.3, 0.08, 0.15)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybq6y"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jn4p2"]
-material = SubResource("StandardMaterial3D_ybq6y")
-size = Vector3(0.3, 0.08, 0.15)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_co24e"]
-points = PackedVector3Array(0.15, 0, 0.1, -0.15, 0, 0.1, -0.15, 0, -0.1, 0.15, 0, -0.1, 0, 0.3, 0.1, 0, 0.3, -0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11ixh"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_co24e"]
-material = SubResource("StandardMaterial3D_11ixh")
-size = Vector3(0.3, 0.3, 0.2)
-
 [node name="Node3D" type="Node3D" unique_id=244791525]
-
-[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
-script = ExtResource("1_feb8i")
-
-[node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.926121, 2.6870525, -8.993267)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1071560573]
 environment = SubResource("Environment_co24e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=447966066]
-transform = Transform3D(-4.371139e-08, -1, -4.3711395e-08, -0.3327702, -2.6674352e-08, 0.9430079, -0.9430079, 5.5766026e-08, -0.3327702, 0, 0, 0)
+transform = Transform3D(-4.3711392e-08, -1, -4.37114e-08, -0.33277023, -2.6674346e-08, 0.94300795, -0.94300795, 5.5766044e-08, -0.33277023, 0, 0, 0)
 light_color = Color(0.9773008, 0.83801377, 0.80501366, 1)
 light_energy = 0.25
 shadow_enabled = true
+
+[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
+script = ExtResource("1_feb8i")
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7062986, 2.0439115, -8.993267)
+
+[node name="OrderBox" parent="." unique_id=620450843 instance=ExtResource("3_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7316921, -9.038922)
+
+[node name="Order_Generator" parent="." unique_id=2039306134 instance=ExtResource("3_kj3p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1682482, 0)
+
+[node name="OrderButton" parent="." unique_id=1038932611 groups=["button"] instance=ExtResource("5_lc7k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0693109, 1.5966605, -9.177432)
+script = ExtResource("6_jn4p2")
 
 [node name="ProtoController" parent="." unique_id=320834418 instance=ExtResource("1_qrja6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -10)
@@ -124,71 +80,10 @@ use_collision = true
 size = Vector3(27, 13, 1)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1678965899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85113525, 1, -9)
 use_collision = true
-size = Vector3(3, 1, 1)
+size = Vector3(4.7022705, 1, 1)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=1788179697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9958699, 1, -9)
-use_collision = true
-size = Vector3(3, 1, 1)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1826696289 groups=["pickable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9248435, 2.2295444, -8.92568)
-script = ExtResource("2_co24e")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1964967796]
-shape = SubResource("BoxShape3D_qrja6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1173795418]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7802458)
-mesh = SubResource("BoxMesh_co24e")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D" unique_id=1916149675]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
-mesh = SubResource("SphereMesh_co24e")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D" unique_id=518041387]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
-mesh = SubResource("SphereMesh_kj3p2")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D" unique_id=685629701]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-mesh = SubResource("SphereMesh_jn4p2")
-
-[node name="Eggs" type="RigidBody3D" parent="." unique_id=1259200089 groups=["pickable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81497157, 1.6841216, -6.46545)
-collision_layer = 5
-script = ExtResource("2_co24e")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Eggs" unique_id=571539812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0020329952, 0)
-shape = SubResource("BoxShape3D_feb8i")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Eggs" unique_id=1188324109]
-mesh = SubResource("BoxMesh_kj3p2")
-
-[node name="Tuna" type="RigidBody3D" parent="." unique_id=1025725757 groups=["pickable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3360339, 1.8749373, -6.411487)
-collision_layer = 5
-script = ExtResource("2_co24e")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tuna" unique_id=356972497]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00086915493, 0)
-shape = SubResource("BoxShape3D_lc7k4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tuna" unique_id=566263984]
-mesh = SubResource("BoxMesh_jn4p2")
-
-[node name="Beer" type="RigidBody3D" parent="." unique_id=143101798 groups=["pickable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91518736, 1.5076151, -6.0005355)
-collision_layer = 5
-script = ExtResource("2_co24e")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Beer" unique_id=1834686767]
-shape = SubResource("ConvexPolygonShape3D_co24e")
-debug_color = Color(0, 11.708403, 13.539555, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Beer" unique_id=1990631914]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15252364, 0)
-mesh = SubResource("PrismMesh_co24e")
+[connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
+[connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]
+[connection signal="pressed" from="OrderButton" to="JamGame" method="_on_order_button_pressed"]

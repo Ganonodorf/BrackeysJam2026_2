@@ -1,33 +1,44 @@
 extends Node
 
-var order_generator_scene = preload("res://scripts/order_generator.tscn")
-var order_generator: OrderGenerator
+@onready var order_generator = $"../Order_Generator"
 
-var order_box_scene = preload("res://order_box/order_box.tscn")
-var order_box: Order_box
+@onready var order_box = $"../OrderBox"
+
+var current_order: Order
 
 @onready var spawn_point = $"../SpawnPoint"
+
+@onready var order_button: OrderButton = $"../OrderButton"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Dialogic.start('test-timeline')
 	#get_viewport().set_input_as_handled()
 	
-	order_generator = order_generator_scene.instantiate()
-	add_child(order_generator)
+	_create_new_order()
+
+func _create_new_order():
+	current_order = order_generator._create_order(1, 1)
 	
-	var new_order: Order = order_generator._create_order(3, 5)
+	order_box._set_order(current_order)
 	
-	order_box = order_box_scene.instantiate()
-	order_box._set_order(new_order)
-	add_child(order_box)
-	
-	for child in new_order.get_children():
+	for child in current_order.get_children():
 		child.position = spawn_point.position
+
+func _clean_old_order():
+	for child in current_order.get_children():
+		child.queue_free()
 	
-	pass
+	current_order.queue_free()
+	current_order = null
 
+func _on_order_box_order_fulfilled() -> void:
+	order_button._enable()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_order_box_order_unfulfilled() -> void:
+	order_button._disable()
+	order_button._unhighlight()
+
+func _on_order_button_pressed() -> void:
+	_clean_old_order()
+	_create_new_order()

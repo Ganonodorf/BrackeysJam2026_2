@@ -12,6 +12,8 @@ var objects_at_reach: Array[Pickable]
 
 var object_picked: Pickable
 
+var button_at_reach: OrderButton
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hand_initial_position = self.position.z
@@ -25,6 +27,10 @@ func _process(delta: float) -> void:
 	
 	if(Input.is_action_just_released("interact") && object_picked != null):
 		object_picked._unpick()
+	
+	if(Input.is_action_just_pressed("interact") && button_at_reach != null):
+		button_at_reach._press()
+		button_at_reach = null
 
 func _unhandled_input(event: InputEvent) -> void:
 		if Input.is_action_just_pressed(input_get_away) && !_is_too_far():
@@ -42,15 +48,22 @@ func _is_too_close():
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("pickable")):
 		objects_at_reach.append(body)
+		_update_selected_object()
 	
-	_update_selected_object()
+	if(body.is_in_group("button") && body._is_button_enabled()):
+		button_at_reach = body
+		button_at_reach._highlight()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if(body.is_in_group("pickable")):
 		objects_at_reach[objects_at_reach.find(body)]._unhighlight()
 		objects_at_reach.erase(body)
+		_update_selected_object()
 	
-	_update_selected_object()
+	if(body.is_in_group("button") && body._is_button_enabled() && body == button_at_reach):
+		button_at_reach._unhighlight()
+		button_at_reach = null
+	
 
 func _update_selected_object():
 	if(objects_at_reach.size() > 0):

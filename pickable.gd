@@ -14,8 +14,11 @@ var rotation_bias: Vector3 = Vector3.ZERO
 @export var vertical_rotation_speed : Vector3 = Vector3(0, 0, 0.1)
 @export var horizontal_rotation_speed : Vector3 = Vector3(0, 0.1, 0)
 
+var original_parent: Node3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	original_parent = get_parent()
 	pass # Replace with function body.
 
 
@@ -40,7 +43,7 @@ func _pick(new_picador: Node3D) -> void:
 	is_picked = true
 
 func _unpick() -> void:
-	reparent(get_tree().root)
+	reparent(original_parent)
 	freeze = false
 	is_picked = false
 

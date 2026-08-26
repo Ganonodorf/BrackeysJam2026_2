@@ -2,7 +2,7 @@ extends Node3D
 
 class_name OrderGenerator
 
-var order_scene = preload("res://scripts/order.tscn")
+var order_scene = preload("res://order/order.tscn")
 
 @export var items_to_generate: Array[Pickable]
 

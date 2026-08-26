@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="1_feb8i"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_qrja6"]
-[ext_resource type="PackedScene" uid="uid://b1udr8p5myt0o" path="res://scripts/order_generator.tscn" id="3_kj3p2"]
-[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order_box/order_box.tscn" id="3_lc7k4"]
-[ext_resource type="PackedScene" uid="uid://dhbcwsnse2q8f" path="res://order_button.tscn" id="5_lc7k4"]
-[ext_resource type="Script" uid="uid://d2h48hsk1q0ke" path="res://order_button.gd" id="6_jn4p2"]
+[ext_resource type="PackedScene" uid="uid://b1udr8p5myt0o" path="res://order/order_generator.tscn" id="3_kj3p2"]
+[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order/order_box.tscn" id="3_lc7k4"]
+[ext_resource type="PackedScene" uid="uid://dhbcwsnse2q8f" path="res://order/order_button.tscn" id="5_lc7k4"]
+[ext_resource type="Script" uid="uid://d2h48hsk1q0ke" path="res://order/order_button.gd" id="6_jn4p2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

@@ -15,7 +15,7 @@ size = Vector3(50, 1, 50)
 [node name="Node3D" type="Node3D" unique_id=244791525]
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3379776, 1.1333338, 5.004111)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4806238, 1.2036102, 4.914769)
 
 [node name="OrderBox" parent="." unique_id=620450843 instance=ExtResource("1_kdryc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13660157, 1.01452, 4.969048)
@@ -34,10 +34,6 @@ collision_layer = 2
 can_jump = false
 base_speed = 1.5
 
-[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13660198, -0.717172, 0.010843754)
-script = ExtResource("6_j5hk1")
-
 [node name="Boundary" type="Area3D" parent="." unique_id=1570854555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5947027, 0)
 script = ExtResource("7_6e45b")
@@ -45,7 +41,7 @@ script = ExtResource("7_6e45b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
 shape = SubResource("BoxShape3D_kdryc")
 
-[node name="entorno" parent="." unique_id=369538390 instance=ExtResource("8_e35lh")]
+[node name="entorno" parent="." unique_id=421206239 instance=ExtResource("8_e35lh")]
 
 [node name="lights" type="Node3D" parent="." unique_id=820979001]
 
@@ -102,6 +98,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8020947, 2.2533786, 4.89185
 light_energy = 0.1
 light_specular = 25.0
 omni_range = 3.989
+
+[node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13660198, -0.717172, 0.010843754)
+script = ExtResource("6_j5hk1")
 
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]

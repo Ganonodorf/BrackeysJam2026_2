@@ -28,7 +28,7 @@ func _create_new_order():
 	order_box._set_order(current_order)
 	
 	for child in current_order.get_children():
-		child.position = spawn_point.position
+		child.global_position = spawn_point.position
 
 func _clean_old_order():
 	for child in current_order.get_children():

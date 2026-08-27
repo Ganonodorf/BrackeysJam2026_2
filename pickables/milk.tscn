@@ -29,13 +29,18 @@ shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Milk" type="RigidBody3D" unique_id=1877024235 groups=["pickable"]]
-collision_layer = 5
+contact_monitor = true
+max_contacts_reported = 6
 script = ExtResource("1_0dofs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=181634693]
 shape = SubResource("BoxShape3D_co24e")
 
 [node name="MeshGood" type="MeshInstance3D" parent="." unique_id=1811321023]
+mesh = SubResource("BoxMesh_feb8i")
+
+[node name="MeshBad" type="MeshInstance3D" parent="." unique_id=592117574]
+visible = false
 mesh = SubResource("BoxMesh_feb8i")
 
 [node name="Outline" type="MeshInstance3D" parent="." unique_id=588753089]

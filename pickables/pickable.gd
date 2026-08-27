@@ -57,29 +57,11 @@ func _highlight() -> void:
 func _unhighlight() -> void:
 	outline_mesh.visible = false
 
-#func _put_horizontal() -> void:
-	#var xAngle: float  = Vector3.UP.angle_to(transform.basis.x)
-	#var yAngle: float  = Vector3.UP.angle_to(transform.basis.y)
-	#var zAngle: float  = Vector3.UP.angle_to(transform.basis.z)
-	#var minusxAngle: float  = Vector3.UP.angle_to(-transform.basis.x)
-	#var minusyAngle: float  = Vector3.UP.angle_to(-transform.basis.y)
-	#var minuszAngle: float  = Vector3.UP.angle_to(-transform.basis.z)
-	#
-	#if(xAngle <= PI/4 || xAngle >= (3 * PI)/4):
-		#var xAngleVector: Vector3 = Vector3(xAngle, 0, 0)
-		#global_rotation += xAngleVector
-	#
-	#print("xAngle: ", xAngle)
-	#print("yAngle: ", yAngle)
-	#print("zAngle: ", zAngle)
-	#print("-xAngle: ", minusxAngle)
-	#print("-yAngle: ", minusyAngle)
-	#print("-zAngle: ", minuszAngle)
-
-
 func _on_body_entered(body: Node) -> void:
-	print("socorro")
 	if(body.is_in_group("pickable") && !is_broken && body.mass > mass):
+		print("Soy ", name, " y colisiono con ", body.name)
+		print("Mi masa es de ", mass, " y la suya ", body.mass)
+		print("Mi vel es de ", linear_velocity, " y la suya ", body.linear_velocity)
 		_break()
 
 func _break():

@@ -7,87 +7,35 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="5_miq82"]
 [ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="6_j5hk1"]
 [ext_resource type="Script" uid="uid://brwlwv18xj5nu" path="res://boundary.gd" id="7_6e45b"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_qrja6"]
-sky_material = SubResource("ProceduralSkyMaterial_v62h7")
-
-[sub_resource type="Environment" id="Environment_co24e"]
-background_mode = 2
-sky = SubResource("Sky_qrja6")
-tonemap_mode = 2
+[ext_resource type="PackedScene" uid="uid://bs3m2llfiqag" path="res://models/entorno.glb" id="8_e35lh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdryc"]
 size = Vector3(50, 1, 50)
 
 [node name="Node3D" type="Node3D" unique_id=244791525]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1071560573]
-environment = SubResource("Environment_co24e")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=447966066]
-transform = Transform3D(-4.3711392e-08, -1, -4.37114e-08, -0.33277023, -2.6674346e-08, 0.94300795, -0.94300795, 5.5766044e-08, -0.33277023, 0, 0, 0)
-light_color = Color(0.9773008, 0.83801377, 0.80501366, 1)
-light_energy = 0.25
-shadow_enabled = true
-
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1153316, 1.8505058, -8.993267)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.3379776, 1.1333338, 5.004111)
 
 [node name="OrderBox" parent="." unique_id=620450843 instance=ExtResource("1_kdryc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7316921, -9.038922)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13660157, 1.01452, 4.969048)
 
 [node name="Order_Generator" parent="." unique_id=2039306134 instance=ExtResource("2_6e45b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1682482, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13660198, 0.45107615, 0.010843754)
 
 [node name="OrderButton" parent="." unique_id=1038932611 groups=["button"] instance=ExtResource("3_e35lh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0693109, 1.5966605, -9.177432)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.93270934, 0.87948847, 5.107558)
 freeze = true
 script = ExtResource("4_udeyl")
 
 [node name="ProtoController" parent="." unique_id=320834418 instance=ExtResource("5_miq82")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -10)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.13660148, 0.28282797, 5.9301257)
 collision_layer = 2
 can_jump = false
 base_speed = 1.5
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1598195075]
-use_collision = true
-size = Vector3(27, 1, 27)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=360897604]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -13)
-visible = false
-use_collision = true
-size = Vector3(27, 13, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1727256671]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13, 7, 0)
-visible = false
-use_collision = true
-size = Vector3(25, 13, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1130336631]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 7, 0)
-visible = false
-use_collision = true
-size = Vector3(25, 13, 1)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=781526504]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 13)
-visible = false
-use_collision = true
-size = Vector3(27, 13, 1)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1678965899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85113525, 1, -9)
-use_collision = true
-size = Vector3(4.7022705, 1, 1)
-
 [node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.13660198, -0.717172, 0.010843754)
 script = ExtResource("6_j5hk1")
 
 [node name="Boundary" type="Area3D" parent="." unique_id=1570854555]
@@ -96,6 +44,64 @@ script = ExtResource("7_6e45b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
 shape = SubResource("BoxShape3D_kdryc")
+
+[node name="entorno" parent="." unique_id=369538390 instance=ExtResource("8_e35lh")]
+
+[node name="lights" type="Node3D" parent="." unique_id=820979001]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lights" unique_id=1077307836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139207, 2.2533786, -5.4095707)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lights" unique_id=138933639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139207, 2.2533786, -0.07951236)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="lights" unique_id=522786387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139207, 2.2533786, 4.8918505)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="lights" unique_id=1290566769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, -5.4095707)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="lights" unique_id=532708047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, -0.07951236)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="lights" unique_id=774759803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, 4.8918505)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="lights" unique_id=303148628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8020947, 2.2533786, -5.4095707)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=1337336687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8020947, 2.2533786, -0.07951236)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=877277542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8020947, 2.2533786, 4.8918505)
+light_energy = 0.1
+light_specular = 25.0
+omni_range = 3.989
 
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]

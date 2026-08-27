@@ -4,9 +4,12 @@ class_name Pickable
 
 var is_picked: bool = false
 var rotation_bias: Vector3 = Vector3.ZERO
+
 @onready var outline_mesh = $Outline
 @onready var good_mesh = $MeshGood
 @onready var bad_mesh = $MeshBad
+
+@export var pickable_group: String = "pickable"
 
 @export var rotation_up : String = "vertical_rotation_up"
 @export var rotation_down : String = "vertical_rotation_down"
@@ -15,6 +18,8 @@ var rotation_bias: Vector3 = Vector3.ZERO
 
 @export var vertical_rotation_speed : Vector3 = Vector3(0, 0, 0.1)
 @export var horizontal_rotation_speed : Vector3 = Vector3(0, 0.1, 0)
+
+@export var fragility : float = 1.5
 
 var original_parent: Node3D
 
@@ -58,10 +63,9 @@ func _unhighlight() -> void:
 	outline_mesh.visible = false
 
 func _on_body_entered(body: Node) -> void:
-	if(body.is_in_group("pickable") && !is_broken && body.mass > mass):
-		print("Soy ", name, " y colisiono con ", body.name)
-		print("Mi masa es de ", mass, " y la suya ", body.mass)
-		print("Mi vel es de ", linear_velocity, " y la suya ", body.linear_velocity)
+	if(body.is_in_group(pickable_group) &&
+	!is_broken && body.mass > mass
+	&& body.linear_velocity.length() > fragility):
 		_break()
 
 func _break():

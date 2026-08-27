@@ -10,12 +10,17 @@ var current_order: Order
 
 @onready var order_button: OrderButton = $"../OrderButton"
 
+var current_scene: int = 0
+
+var number_of_demanded_orders: int = 0
+
+var number_of_current_orders: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Dialogic.start('test-timeline')
-	#get_viewport().set_input_as_handled()
-	
-	_create_new_order()
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.start('placeholder')
+	get_viewport().set_input_as_handled()
 
 func _create_new_order():
 	current_order = order_generator._create_order(3, 3)
@@ -40,5 +45,32 @@ func _on_order_box_order_unfulfilled() -> void:
 	order_button._unhighlight()
 
 func _on_order_button_pressed() -> void:
+	number_of_current_orders += 1
 	_clean_old_order()
-	_create_new_order()
+	if(number_of_current_orders < number_of_demanded_orders):
+		_create_new_order()
+	else:
+		_on_orders_finished();
+
+
+func _on_orders_finished():
+	current_scene += 1
+	_next_scene()
+
+func _on_timeline_ended():
+	current_scene += 1
+	_next_scene()
+
+func _next_scene():
+	match current_scene:
+		1:
+			number_of_demanded_orders = 1
+			number_of_current_orders = 0
+			_create_new_order()
+		2:
+			Dialogic.start('2_keep_going')
+			get_viewport().set_input_as_handled()
+		3:
+			number_of_demanded_orders = 1
+			number_of_current_orders = 0
+			_create_new_order()

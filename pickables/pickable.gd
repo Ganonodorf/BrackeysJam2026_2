@@ -72,3 +72,6 @@ func _break():
 	is_broken = true
 	good_mesh.visible = false
 	bad_mesh.visible = true
+
+func _is_broken():
+	return is_broken

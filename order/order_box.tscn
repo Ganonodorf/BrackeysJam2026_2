@@ -10,6 +10,7 @@ size = Vector3(1, 0.4, 1)
 script = ExtResource("2_deo1e")
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=2083493697]
+collision_mask = 3
 
 [node name="InsertBox" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1645438054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015277773, 0)

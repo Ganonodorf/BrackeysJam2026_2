@@ -21,10 +21,13 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"test-character": "res://dialogues/characters/test-character.dch"
+"boss": "res://dialogues/characters/boss.dch",
+"player": "res://dialogues/characters/player.dch"
 }
 directories/dtl_directory={
-"test-timeline": "res://dialogues/test-timeline.dtl"
+"1_start": "res://dialogues/timelines/1_start.dtl",
+"2_keep_going": "res://dialogues/timelines/2_keep_going.dtl",
+"placeholder": "res://dialogues/timelines/placeholder.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true

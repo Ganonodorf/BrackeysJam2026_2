@@ -32,6 +32,8 @@ shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Eggs" type="RigidBody3D" unique_id=469116719 groups=["pickable"]]
+collision_layer = 2
+collision_mask = 3
 mass = 0.2
 contact_monitor = true
 max_contacts_reported = 6

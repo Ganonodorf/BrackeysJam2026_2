@@ -4,7 +4,8 @@ extends Node3D
 @export var input_get_away : String = "get_away"
 @export var input_get_closer : String = "get_closer"
 
-@export var hand_margin: float = 0.2
+@export var hand_close_margin: float = 0.3
+@export var hand_far_margin: float = 0.6
 @export var hand_step: float = 0.01
 var hand_initial_position: float = 0
 
@@ -40,10 +41,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			self.position.z = self.position.z + hand_step
 
 func _is_too_far():
-	return self.position.z <= hand_initial_position - hand_margin
+	return self.position.z <= hand_initial_position - hand_far_margin
 
 func _is_too_close():
-	return self.position.z >= hand_initial_position + hand_margin
+	return self.position.z >= hand_initial_position + hand_close_margin
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("pickable")):

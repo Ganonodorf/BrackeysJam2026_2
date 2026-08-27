@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://yn3y3mpu0p8u"]
 
-[ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="1_feb8i"]
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_qrja6"]
-[ext_resource type="PackedScene" uid="uid://b1udr8p5myt0o" path="res://order/order_generator.tscn" id="3_kj3p2"]
-[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order/order_box.tscn" id="3_lc7k4"]
-[ext_resource type="PackedScene" uid="uid://dhbcwsnse2q8f" path="res://order/order_button.tscn" id="5_lc7k4"]
-[ext_resource type="Script" uid="uid://d2h48hsk1q0ke" path="res://order/order_button.gd" id="6_jn4p2"]
+[ext_resource type="PackedScene" uid="uid://dxqpqq35rqqyq" path="res://order/order_box.tscn" id="1_kdryc"]
+[ext_resource type="PackedScene" uid="uid://b1udr8p5myt0o" path="res://order/order_generator.tscn" id="2_6e45b"]
+[ext_resource type="PackedScene" uid="uid://dhbcwsnse2q8f" path="res://order/order_button.tscn" id="3_e35lh"]
+[ext_resource type="Script" uid="uid://d2h48hsk1q0ke" path="res://order/order_button.gd" id="4_udeyl"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="5_miq82"]
+[ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="6_j5hk1"]
+[ext_resource type="Script" uid="uid://brwlwv18xj5nu" path="res://boundary.gd" id="7_6e45b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v62h7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,6 +19,9 @@ sky_material = SubResource("ProceduralSkyMaterial_v62h7")
 background_mode = 2
 sky = SubResource("Sky_qrja6")
 tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdryc"]
+size = Vector3(50, 1, 50)
 
 [node name="Node3D" type="Node3D" unique_id=244791525]
 
@@ -33,18 +37,20 @@ shadow_enabled = true
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1153316, 1.8505058, -8.993267)
 
-[node name="OrderBox" parent="." unique_id=620450843 instance=ExtResource("3_lc7k4")]
+[node name="OrderBox" parent="." unique_id=620450843 instance=ExtResource("1_kdryc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7316921, -9.038922)
 
-[node name="Order_Generator" parent="." unique_id=2039306134 instance=ExtResource("3_kj3p2")]
+[node name="Order_Generator" parent="." unique_id=2039306134 instance=ExtResource("2_6e45b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1682482, 0)
 
-[node name="OrderButton" parent="." unique_id=1038932611 groups=["button"] instance=ExtResource("5_lc7k4")]
+[node name="OrderButton" parent="." unique_id=1038932611 groups=["button"] instance=ExtResource("3_e35lh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0693109, 1.5966605, -9.177432)
-script = ExtResource("6_jn4p2")
+freeze = true
+script = ExtResource("4_udeyl")
 
-[node name="ProtoController" parent="." unique_id=320834418 instance=ExtResource("1_qrja6")]
+[node name="ProtoController" parent="." unique_id=320834418 instance=ExtResource("5_miq82")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -10)
+collision_layer = 2
 can_jump = false
 base_speed = 1.5
 
@@ -82,8 +88,16 @@ use_collision = true
 size = Vector3(4.7022705, 1, 1)
 
 [node name="JamGame" type="Node3D" parent="." unique_id=1566426448]
-script = ExtResource("1_feb8i")
+script = ExtResource("6_j5hk1")
+
+[node name="Boundary" type="Area3D" parent="." unique_id=1570854555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5947027, 0)
+script = ExtResource("7_6e45b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
+shape = SubResource("BoxShape3D_kdryc")
 
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]
 [connection signal="pressed" from="OrderButton" to="JamGame" method="_on_order_button_pressed"]
+[connection signal="body_entered" from="Boundary" to="Boundary" method="_on_body_entered"]

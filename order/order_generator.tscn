@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://b1udr8p5myt0o"]
 
 [ext_resource type="Script" uid="uid://bgu2p4kybn1jy" path="res://order/order_generator.gd" id="1_kwaux"]
-[ext_resource type="PackedScene" uid="uid://dlir1btsbscs3" path="res://pickables/milk.tscn" id="2_u6mpm"]
-[ext_resource type="PackedScene" uid="uid://cuyx4wbttjlxn" path="res://pickables/eggs.tscn" id="3_u6mpm"]
+[ext_resource type="PackedScene" uid="uid://5hpcisc8aa15" path="res://pickables/canned_food_3.tscn" id="2_051se"]
+[ext_resource type="PackedScene" uid="uid://yxua74ni4216" path="res://pickables/canned_food_2.tscn" id="2_kwaux"]
+[ext_resource type="PackedScene" uid="uid://bomkvq0hmqjl1" path="res://pickables/milk_carton.tscn" id="3_u6mpm"]
+[ext_resource type="PackedScene" uid="uid://bwsulm00w5xv4" path="res://pickables/egg.tscn" id="5_keae2"]
 
 [node name="Order_Generator" type="Node3D" unique_id=2039306134]
 script = ExtResource("1_kwaux")
 
-[node name="Milk" parent="." unique_id=1877024235 instance=ExtResource("2_u6mpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7892277)
+[node name="CannedFood3" parent="." unique_id=686493894 instance=ExtResource("2_051se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1361438)
 
-[node name="Eggs" parent="." unique_id=469116719 instance=ExtResource("3_u6mpm")]
+[node name="CannedFood2" parent="." unique_id=187747459 instance=ExtResource("2_kwaux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1337618)
+
+[node name="MilkCarton" parent="." unique_id=1753766433 instance=ExtResource("3_u6mpm")]
+
+[node name="Egg" parent="." unique_id=1877120536 instance=ExtResource("5_keae2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.33129758)

@@ -4,7 +4,7 @@ extends Node3D
 @export var input_get_away : String = "get_away"
 @export var input_get_closer : String = "get_closer"
 
-@export var hand_close_margin: float = 0.3
+@export var hand_close_margin: float = 0.4
 @export var hand_far_margin: float = 0.6
 @export var hand_step: float = 0.01
 var hand_initial_position: float = 0

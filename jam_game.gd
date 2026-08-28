@@ -23,7 +23,7 @@ func _ready() -> void:
 	get_viewport().set_input_as_handled()
 
 func _create_new_order():
-	current_order = order_generator._create_order(3, 3)
+	current_order = order_generator._create_order(5, 5)
 	
 	order_box._set_order(current_order)
 	

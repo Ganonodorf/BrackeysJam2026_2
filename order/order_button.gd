@@ -4,7 +4,7 @@ class_name OrderButton
 
 signal pressed
 
-@onready var outline_mesh = $MeshInstance3D/Outline
+@onready var outline_mesh = $CollisionShape3D2/MeshInstance3D/Outline
 
 var button_enabled: bool = false
 

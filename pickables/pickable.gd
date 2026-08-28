@@ -5,9 +5,13 @@ class_name Pickable
 var is_picked: bool = false
 var rotation_bias: Vector3 = Vector3.ZERO
 
-@onready var outline_mesh = $Outline
-@onready var good_mesh = $MeshGood
-@onready var bad_mesh = $MeshBad
+@onready var outline_good_mesh = $model/MeshGood/Outline
+@onready var outline_bad_mesh = $model/MeshBad/Outline
+@onready var good_mesh = $model/MeshGood
+@onready var bad_mesh = $model/MeshBad
+
+@onready var current_outline = outline_good_mesh
+@onready var current_mesh = good_mesh
 
 @export var pickable_group: String = "pickable"
 
@@ -28,6 +32,7 @@ var is_broken: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	original_parent = get_parent()
+	
 	pass # Replace with function body.
 
 
@@ -57,19 +62,24 @@ func _unpick() -> void:
 	is_picked = false
 
 func _highlight() -> void:
-	outline_mesh.visible = true
+	current_outline.visible = true
 
 func _unhighlight() -> void:
-	outline_mesh.visible = false
+	current_outline.visible = false
 
 func _on_body_entered(body: Node) -> void:
 	if(body.is_in_group(pickable_group) &&
+	!is_broken &&
 	!is_broken && body.mass > mass
 	&& body.linear_velocity.length() > fragility):
+	#body.linear_velocity.length() > linear_velocity.length() &&
+	#body.mass + body.mass * body.linear_velocity.length() > mass + 1):
+		#print("Soy ", name, " con ", body.name, " y sale: ", body.mass + body.mass * body.linear_velocity.length())
 		_break()
 
 func _break():
 	is_broken = true
+	current_outline = outline_bad_mesh
 	good_mesh.visible = false
 	bad_mesh.visible = true
 

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="5_miq82"]
 [ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="6_j5hk1"]
 [ext_resource type="Script" uid="uid://brwlwv18xj5nu" path="res://boundary.gd" id="7_6e45b"]
-[ext_resource type="PackedScene" uid="uid://bs3m2llfiqag" path="res://models/entorno.glb" id="8_e35lh"]
+[ext_resource type="PackedScene" uid="uid://bs3m2llfiqag" path="res://models/entorno/entorno.glb" id="8_e35lh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdryc"]
 size = Vector3(50, 1, 50)
@@ -41,7 +41,7 @@ script = ExtResource("7_6e45b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
 shape = SubResource("BoxShape3D_kdryc")
 
-[node name="entorno" parent="." unique_id=421206239 instance=ExtResource("8_e35lh")]
+[node name="entorno" parent="." unique_id=862191962 instance=ExtResource("8_e35lh")]
 
 [node name="lights" type="Node3D" parent="." unique_id=820979001]
 

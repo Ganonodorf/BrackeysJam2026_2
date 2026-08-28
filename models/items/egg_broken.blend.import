@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dx6qnrs05pogq"
-path="res://.godot/imported/entorno.blend-a3b1d485f6573ae6a3c334de41e555ad.scn"
+uid="uid://cmguk0awju8d4"
+path="res://.godot/imported/egg_broken.blend-7fb644c00f32f1c8f37f1e2dfd163b76.scn"
 
 [deps]
 
-source_file="res://models/entorno.blend"
-dest_files=["res://.godot/imported/entorno.blend-a3b1d485f6573ae6a3c334de41e555ad.scn"]
+source_file="res://models/items/egg_broken.blend"
+dest_files=["res://.godot/imported/egg_broken.blend-7fb644c00f32f1c8f37f1e2dfd163b76.scn"]
 
 [params]
 

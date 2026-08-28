@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqcpedgcvqxuu"
-path="res://.godot/imported/butcher.blend-89f417d39aa1c24b542879e263d011be.scn"
+uid="uid://dx6qnrs05pogq"
+path="res://.godot/imported/entorno.blend-95a6dbd21e5490184bee640a80de347c.scn"
 
 [deps]
 
-source_file="res://models/butcher.blend"
-dest_files=["res://.godot/imported/butcher.blend-89f417d39aa1c24b542879e263d011be.scn"]
+source_file="res://models/entorno/entorno.blend"
+dest_files=["res://.godot/imported/entorno.blend-95a6dbd21e5490184bee640a80de347c.scn"]
 
 [params]
 

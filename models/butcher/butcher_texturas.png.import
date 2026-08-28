@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhltj81nuw73y"
-path.s3tc="res://.godot/imported/boss_PacoTextura.png-797aab14104e525c611b7667b662b004.s3tc.ctex"
+uid="uid://bjoawpsw3khii"
+path.s3tc="res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "684ff3318dcf72127159897e927d1ab9"
+"md5": "cad39e55a92b483d745d90344edd2bf8"
 }
 
 [deps]
 
-source_file="res://models/boss_PacoTextura.png"
-dest_files=["res://.godot/imported/boss_PacoTextura.png-797aab14104e525c611b7667b662b004.s3tc.ctex"]
+source_file="res://models/butcher/butcher_texturas.png"
+dest_files=["res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.s3tc.ctex"]
 
 [params]
 

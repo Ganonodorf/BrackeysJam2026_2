@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://buafq4sysgsn5"
-path="res://.godot/imported/boss.blend-17ed06f9f182af4fbd99dcd3366d6394.scn"
+uid="uid://cqcpedgcvqxuu"
+path="res://.godot/imported/butcher.blend-c012e3c2db75b5fc46b19283d8625d85.scn"
 
 [deps]
 
-source_file="res://models/boss.blend"
-dest_files=["res://.godot/imported/boss.blend-17ed06f9f182af4fbd99dcd3366d6394.scn"]
+source_file="res://models/butcher/butcher.blend"
+dest_files=["res://.godot/imported/butcher.blend-c012e3c2db75b5fc46b19283d8625d85.scn"]
 
 [params]
 

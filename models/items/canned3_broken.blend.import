@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://f17kxnqhew4b"
-path="res://.godot/imported/Caja.blend-38ca729eb549cb1f60dcdcaf2f11bd34.scn"
+uid="uid://br2e25licctie"
+path="res://.godot/imported/canned3_broken.blend-9da30d2644f7fb405e6acaf3c8ecd814.scn"
 
 [deps]
 
-source_file="res://models/Caja.blend"
-dest_files=["res://.godot/imported/Caja.blend-38ca729eb549cb1f60dcdcaf2f11bd34.scn"]
+source_file="res://models/items/canned3_broken.blend"
+dest_files=["res://.godot/imported/canned3_broken.blend-9da30d2644f7fb405e6acaf3c8ecd814.scn"]
 
 [params]
 

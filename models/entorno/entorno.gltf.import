@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://by1ewttloa1xn"
-path="res://.godot/imported/entorno.gltf-73d439a3ed21478b2deb07c3eee63a0d.scn"
+valid=false
 
 [deps]
 
-source_file="res://models/entorno.gltf"
-dest_files=["res://.godot/imported/entorno.gltf-73d439a3ed21478b2deb07c3eee63a0d.scn"]
+source_file="res://models/entorno/entorno.gltf"
 
 [params]
 

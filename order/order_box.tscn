@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxqpqq35rqqyq"]
 
-[ext_resource type="PackedScene" uid="uid://f17kxnqhew4b" path="res://models/Caja.blend" id="1_0cw05"]
+[ext_resource type="PackedScene" uid="uid://f17kxnqhew4b" path="res://models/caja/Caja.blend" id="1_0cw05"]
 [ext_resource type="Script" uid="uid://fectby1txycl" path="res://order/order_box.gd" id="2_deo1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_suixj"]

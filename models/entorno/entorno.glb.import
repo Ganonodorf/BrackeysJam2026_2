@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bs3m2llfiqag"
-path="res://.godot/imported/entorno.glb-35b4635f4131d53a48c191272429c9e7.scn"
+path="res://.godot/imported/entorno.glb-c6d0e38e4dcdeb75a1543f5edd6c468c.scn"
 
 [deps]
 
-source_file="res://models/entorno.glb"
-dest_files=["res://.godot/imported/entorno.glb-35b4635f4131d53a48c191272429c9e7.scn"]
+source_file="res://models/entorno/entorno.glb"
+dest_files=["res://.godot/imported/entorno.glb-c6d0e38e4dcdeb75a1543f5edd6c468c.scn"]
 
 [params]
 

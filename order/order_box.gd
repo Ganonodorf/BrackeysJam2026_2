@@ -36,3 +36,12 @@ func _inside_contains_same_elements_than_order() -> bool:
 		if(!order._has(pickable)): return false
 		if(inside.count(pickable) != order._count(pickable)): return false
 	return true
+
+func _give_me_the_price() -> int:
+	var price: int = 0
+	
+	for pickable in inside:
+		if(pickable.is_broken): price += 50
+		else: price += 100
+	
+	return price

@@ -18,6 +18,9 @@ height = 1.3262695
 radius = 0.01
 height = 0.02
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h6nv"]
+no_depth_test = true
+
 [node name="ProtoController" type="CharacterBody3D" unique_id=1033243635]
 collision_layer = 4
 script = ExtResource("1_ucva2")
@@ -37,6 +40,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2286942, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=2014620528]
 
+[node name="Label3D" type="Label3D" parent="Head/Camera3D" unique_id=1529962156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1, -1.7)
+no_depth_test = true
+text = "Score: 0"
+
 [node name="Hand" type="Node3D" parent="Head" unique_id=528178174]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
 script = ExtResource("2_3h6nv")
@@ -44,6 +52,7 @@ hand_step = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Hand" unique_id=1716754122]
 mesh = SubResource("SphereMesh_qqi21")
+surface_material_override/0 = SubResource("StandardMaterial3D_3h6nv")
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Hand" unique_id=890450375]
 target_position = Vector3(0, 0, -1)

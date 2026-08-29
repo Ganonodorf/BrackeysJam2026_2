@@ -52,6 +52,7 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var label: Label3D = $Head/Camera3D/Label3D
 
 func _ready() -> void:
 	check_input_mappings()
@@ -176,3 +177,6 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+func _update_score(new_score: String):
+	label.text = "Score: " + new_score

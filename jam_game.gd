@@ -11,11 +11,15 @@ var current_order: Order
 @onready var order_finished_button: OrderButton = $"../OrderButton"
 @onready var new_order_button: OrderButton = $"../OrderButtonNewOrder"
 
+@onready var controller = $"../ProtoController"
+
 var current_scene: int = 0
 
 var number_of_demanded_orders: int = 0
 
 var number_of_current_orders: int = 0
+
+var score: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,6 +58,8 @@ func _on_order_button_pressed() -> void:
 	
 	number_of_current_orders += 1
 	
+	_calculate_score()
+	
 	_clean_old_order()
 	
 	if(number_of_current_orders < number_of_demanded_orders):
@@ -73,6 +79,13 @@ func _on_orders_finished():
 func _on_timeline_ended():
 	current_scene += 1
 	_next_scene()
+
+func _calculate_score():
+	var price: int = order_box._give_me_the_price()
+	
+	score += price
+	
+	controller._update_score(str(score))
 
 func _next_scene():
 	match current_scene:

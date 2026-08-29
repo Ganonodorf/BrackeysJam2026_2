@@ -7,7 +7,10 @@
 [ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="6_j5hk1"]
 [ext_resource type="Script" uid="uid://brwlwv18xj5nu" path="res://boundary.gd" id="7_6e45b"]
 [ext_resource type="PackedScene" uid="uid://bs3m2llfiqag" path="res://models/entorno/entorno.glb" id="8_e35lh"]
+[ext_resource type="PackedScene" uid="uid://sel2lm6fy73i" path="res://models/butcher/butcher.glb" id="8_miq82"]
 [ext_resource type="PackedScene" uid="uid://dtnb0dfopjbrm" path="res://order/order_box_nueva.tscn" id="8_udeyl"]
+[ext_resource type="PackedScene" uid="uid://dbt5k5g7k52r0" path="res://models/bodies/bodies1.glb" id="10_j5hk1"]
+[ext_resource type="PackedScene" uid="uid://d4l8aywlfey3x" path="res://models/bodies/bodies2.glb" id="11_ueiaa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e35lh"]
 size = Vector3(4.409912, 1, 3.8416748)
@@ -87,19 +90,44 @@ script = ExtResource("7_6e45b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
 shape = SubResource("BoxShape3D_kdryc")
 
-[node name="entorno" parent="." unique_id=1642796314 instance=ExtResource("8_e35lh")]
+[node name="entorno" parent="." unique_id=541242417 instance=ExtResource("8_e35lh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015525818, 0, 0.0015798807)
+
+[node name="butcher" parent="." unique_id=1140961672 instance=ExtResource("8_miq82")]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, -2.7017214, 0.031458348, 1.5411861)
+
+[node name="Skeleton3D" parent="butcher/Armature" parent_id_path=PackedInt32Array(1140961672, 299652251) index="0" unique_id=2068681049]
+bones/1/position = Vector3(-0.112234876, 4.5253186, -0.23278669)
+bones/2/rotation = Quaternion(0.09341887, 0.01902108, 0.001082112, 0.99544466)
+bones/4/rotation = Quaternion(0.3396357, 1.3686869e-09, 7.924179e-08, 0.94055706)
+bones/5/rotation = Quaternion(0.011309072, 6.416361e-10, 2.2600677e-09, 0.99993604)
+bones/7/rotation = Quaternion(-0.7180099, -0.095317595, 0.0030307109, 0.6894688)
+bones/8/rotation = Quaternion(-0.14639826, -0.030356873, 0.03467785, 0.98815155)
+bones/9/rotation = Quaternion(-0.14078802, -0.0244152, 0.021322995, 0.989509)
+bones/10/rotation = Quaternion(-0.25697026, -0.07462194, 0.081871256, 0.96004957)
+bones/11/rotation = Quaternion(-0.09368488, -0.034886673, 0.041788276, 0.99411255)
+bones/12/rotation = Quaternion(-0.09939871, -0.010939027, -0.009988624, 0.9949374)
+bones/13/rotation = Quaternion(0.0939819, 0.06562221, -0.10112443, 0.9882485)
+bones/15/rotation = Quaternion(0.64110523, -0.054605648, -0.4089716, 0.6471048)
+bones/16/rotation = Quaternion(0.0024994726, 0.0006797768, -6.944653e-05, 0.9999967)
+bones/17/rotation = Quaternion(0.1220914, 0.14156891, 0.29069963, 0.9383739)
+bones/19/rotation = Quaternion(-0.052119896, 0.3927213, 0.016229348, 0.91803604)
+bones/20/rotation = Quaternion(0.93538004, -0.00023968774, 0.025980012, 0.3526885)
+bones/21/rotation = Quaternion(-0.18497366, 0.66511744, -0.29907402, 0.6587551)
+bones/22/rotation = Quaternion(0.017159358, 0.36180186, 0.9319921, -0.013988597)
+bones/23/rotation = Quaternion(-0.28960755, -0.0004085789, 0.023376673, 0.95685995)
+bones/25/rotation = Quaternion(0.02753421, 0.36294532, 0.93137306, -0.007542804)
+bones/26/rotation = Quaternion(-0.29401815, 0.00040800066, -0.023732685, 0.95550513)
+bones/30/position = Vector3(1.1051583, 5.224305, 1.7764742)
+bones/33/rotation = Quaternion(0.3638862, 0.6062894, -0.6062894, -0.3638862)
+bones/34/position = Vector3(-1.2134092, 7.091359, 1.063205)
+bones/35/rotation = Quaternion(0.012401128, 0.70699805, -0.70699805, -0.012401128)
 
 [node name="lights" type="Node3D" parent="." unique_id=820979001]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="lights" unique_id=1077307836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139207, 2.2533786, -5.4095707)
-light_energy = 0.1
-light_specular = 25.0
-omni_range = 3.989
-
 [node name="OmniLight3D2" type="OmniLight3D" parent="lights" unique_id=138933639]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139207, 2.2533786, -0.07951236)
-light_energy = 0.1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139207, 2.2533786, 1.5647507)
+light_energy = 0.05
 light_specular = 25.0
 omni_range = 3.989
 
@@ -109,32 +137,14 @@ light_energy = 0.1
 light_specular = 25.0
 omni_range = 3.989
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="lights" unique_id=1290566769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, -5.4095707)
-light_energy = 0.1
-light_specular = 25.0
-omni_range = 3.989
-
 [node name="OmniLight3D5" type="OmniLight3D" parent="lights" unique_id=532708047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, -0.07951236)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, 1.5647507)
 light_energy = 0.1
 light_specular = 25.0
 omni_range = 3.989
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="lights" unique_id=774759803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034226894, 2.2533786, 4.8918505)
-light_energy = 0.1
-light_specular = 25.0
-omni_range = 3.989
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="lights" unique_id=303148628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8020947, 2.2533786, -5.4095707)
-light_energy = 0.1
-light_specular = 25.0
-omni_range = 3.989
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=1337336687]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8020947, 2.2533786, -0.07951236)
 light_energy = 0.1
 light_specular = 25.0
 omni_range = 3.989
@@ -164,6 +174,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05305171, 4.89843)
 shape = SubResource("BoxShape3D_udeyl")
 debug_color = Color(0.97896975, 0.037146255, 0.3657044, 0.41960785)
 
+[node name="bodies1" parent="." unique_id=1299622004 instance=ExtResource("10_j5hk1")]
+transform = Transform3D(-0.43939698, 0, 0.023027834, 0, 0.44, 0, -0.023027834, 0, -0.43939698, -3.3727953, 1.9754474, 2.7504935)
+
+[node name="bodies2" parent="." unique_id=36386159 instance=ExtResource("11_ueiaa")]
+transform = Transform3D(-0.345, -3.016086e-08, -1.318373e-15, 0, -1.508043e-08, 0.345, -3.016086e-08, 0.345, 1.508043e-08, -2.5240462, 1.5496753, 0.25806332)
+
+[node name="bodies3" parent="." unique_id=1537589874 instance=ExtResource("11_ueiaa")]
+transform = Transform3D(-0.345, -3.016086e-08, -1.318373e-15, 0, -1.508043e-08, 0.345, -3.016086e-08, 0.345, 1.508043e-08, -3.544672, 1.5496753, 0.25806332)
+
+[node name="bodies4" parent="." unique_id=1149144995 instance=ExtResource("11_ueiaa")]
+transform = Transform3D(-0.117996946, -0.05071511, -0.32020256, 0, 0.34075248, -0.05396989, 0.32419395, -0.018458791, -0.116544195, -1.5805703, 0.39265954, 0.7523701)
+
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]
 [connection signal="pressed" from="OrderButton" to="JamGame" method="_on_order_button_pressed"]
@@ -171,3 +193,4 @@ debug_color = Color(0.97896975, 0.037146255, 0.3657044, 0.41960785)
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_body_entered"]
 
 [editable path="OrderBox"]
+[editable path="butcher"]

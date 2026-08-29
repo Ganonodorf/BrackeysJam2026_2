@@ -15,13 +15,15 @@ func _disable():
 	button_enabled = false
 
 func _press():
-	pressed.emit()
+	if(_is_button_enabled()):
+		pressed.emit()
 
 func _is_button_enabled() -> bool:
 	return button_enabled
 
 func _highlight() -> void:
-	outline_mesh.visible = true
+	if(_is_button_enabled()):
+		outline_mesh.visible = true
 
 func _unhighlight() -> void:
 	outline_mesh.visible = false

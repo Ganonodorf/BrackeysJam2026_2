@@ -15,11 +15,8 @@ radius = 0.2109375
 height = 1.3262695
 
 [sub_resource type="SphereMesh" id="SphereMesh_qqi21"]
-radius = 0.02
-height = 0.04
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_3h6nv"]
-radius = 0.04
+radius = 0.01
+height = 0.02
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1033243635]
 collision_layer = 4
@@ -41,18 +38,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2286942, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=2014620528]
 
 [node name="Hand" type="Node3D" parent="Head" unique_id=528178174]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
 script = ExtResource("2_3h6nv")
 hand_step = 0.05
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Hand" unique_id=1716754122]
 mesh = SubResource("SphereMesh_qqi21")
 
-[node name="Area3D" type="Area3D" parent="Head/Hand" unique_id=605302153]
+[node name="RayCast3D" type="RayCast3D" parent="Head/Hand" unique_id=890450375]
+target_position = Vector3(0, 0, -1)
 collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Hand/Area3D" unique_id=411948701]
-shape = SubResource("SphereShape3D_3h6nv")
-
-[connection signal="body_entered" from="Head/Hand/Area3D" to="Head/Hand" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Head/Hand/Area3D" to="Head/Hand" method="_on_area_3d_body_exited"]

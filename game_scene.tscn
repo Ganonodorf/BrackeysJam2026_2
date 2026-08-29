@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1udr8p5myt0o" path="res://order/order_generator.tscn" id="2_6e45b"]
 [ext_resource type="PackedScene" uid="uid://dhbcwsnse2q8f" path="res://order/order_button.tscn" id="3_e35lh"]
+[ext_resource type="PackedScene" uid="uid://buj0lliqoctec" path="res://order/order_button_skip.tscn" id="4_e35lh"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="5_miq82"]
 [ext_resource type="Script" uid="uid://10iwu5reljf7" path="res://jam_game.gd" id="6_j5hk1"]
 [ext_resource type="Script" uid="uid://brwlwv18xj5nu" path="res://boundary.gd" id="7_6e45b"]
@@ -38,8 +39,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8895493, 4.9138165)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047552884, -0.0032076836)
 
 [node name="OrderButton" parent="." unique_id=1038932611 instance=ExtResource("3_e35lh")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.93270934, 0.87948847, 5.107558)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.128451, 0.8776239, 5.107558)
 freeze = true
+
+[node name="OrderButtonNewOrder" parent="." unique_id=132984704 instance=ExtResource("4_e35lh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82477546, 0.87614167, 4.8025002)
 
 [node name="ProtoController" parent="." unique_id=320834418 instance=ExtResource("5_miq82")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.13660148, 0.28282797, 5.9301257)
@@ -127,6 +131,7 @@ debug_color = Color(0.97896975, 0.037146255, 0.3657044, 0.41960785)
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]
 [connection signal="pressed" from="OrderButton" to="JamGame" method="_on_order_button_pressed"]
+[connection signal="pressed" from="OrderButtonNewOrder" to="JamGame" method="_on_order_button_new_order_pressed"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_body_entered"]
 
 [editable path="OrderBox"]

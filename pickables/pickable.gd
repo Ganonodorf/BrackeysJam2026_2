@@ -23,7 +23,9 @@ var rotation_bias: Vector3 = Vector3.ZERO
 @export var vertical_rotation_speed : Vector3 = Vector3(0, 0, 0.1)
 @export var horizontal_rotation_speed : Vector3 = Vector3(0, 0.1, 0)
 
-@export var fragility : float = 1.5
+@export var velocidad_maxima : float = 1
+var velocidad_previa: float = 0
+
 
 var original_parent: Node3D
 
@@ -50,6 +52,13 @@ func _process(delta: float) -> void:
 		
 		if(Input.is_action_pressed(rotation_down)):
 			global_rotate(get_parent().global_transform.basis.x, 0.1)
+	
+	if(!is_picked &&
+	velocidad_previa > velocidad_maxima &&
+	linear_velocity.length() < 0.1):
+		_break()
+	
+	velocidad_previa = linear_velocity.length()
 
 func _pick(new_picador: Node3D) -> void:
 	reparent(new_picador)
@@ -71,7 +80,7 @@ func _on_body_entered(body: Node) -> void:
 	if(body.is_in_group(pickable_group) &&
 	!is_broken &&
 	!is_broken && body.mass > mass
-	&& body.linear_velocity.length() > fragility):
+	&& body.linear_velocity.length() > velocidad_maxima):
 	#body.linear_velocity.length() > linear_velocity.length() &&
 	#body.mass + body.mass * body.linear_velocity.length() > mass + 1):
 		#print("Soy ", name, " con ", body.name, " y sale: ", body.mass + body.mass * body.linear_velocity.length())

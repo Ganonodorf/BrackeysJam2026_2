@@ -18,6 +18,9 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6e45b"]
 size = Vector3(2.4006252, 0.15478516, 0.5878906)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_udeyl"]
+size = Vector3(10.108916, 0.15478516, 14.021851)
+
 [node name="Node3D" type="Node3D" unique_id=244791525]
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
@@ -52,7 +55,7 @@ can_jump = false
 base_speed = 2.0
 
 [node name="Boundary" type="Area3D" parent="." unique_id=1570854555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7587111, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6122074, 0)
 script = ExtResource("7_6e45b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
@@ -126,6 +129,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48722196, 4.89843)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa" unique_id=1583861857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59452724, 0.2688446, 0)
 shape = SubResource("BoxShape3D_6e45b")
+debug_color = Color(0.97896975, 0.037146255, 0.3657044, 0.41960785)
+
+[node name="Suelo" type="StaticBody3D" parent="." unique_id=2099395792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05305171, 4.89843)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=1512892849]
+shape = SubResource("BoxShape3D_udeyl")
 debug_color = Color(0.97896975, 0.037146255, 0.3657044, 0.41960785)
 
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]

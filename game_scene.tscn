@@ -24,7 +24,33 @@ size = Vector3(10.108916, 0.15478516, 14.021851)
 [node name="Node3D" type="Node3D" unique_id=244791525]
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1069673722]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4806238, 1.2036102, 4.914769)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4806238, 0.9746833, 4.914769)
+
+[node name="Node3D" type="Node3D" parent="SpawnPoint" unique_id=1997738143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+
+[node name="Node3D2" type="Node3D" parent="SpawnPoint" unique_id=575111549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="Node3D3" type="Node3D" parent="SpawnPoint" unique_id=1440434310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999993, 0, -0.13409948)
+
+[node name="Node3D4" type="Node3D" parent="SpawnPoint" unique_id=175350209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+
+[node name="Node3D5" type="Node3D" parent="SpawnPoint" unique_id=490332929]
+
+[node name="Node3D6" type="Node3D" parent="SpawnPoint" unique_id=1063511807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.13409948)
+
+[node name="Node3D7" type="Node3D" parent="SpawnPoint" unique_id=1758356405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0.2)
+
+[node name="Node3D8" type="Node3D" parent="SpawnPoint" unique_id=213219222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+
+[node name="Node3D9" type="Node3D" parent="SpawnPoint" unique_id=594973075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000005, 0, -0.13409948)
 
 [node name="OrderGeneratorFloor" type="StaticBody3D" parent="." unique_id=2129496588]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.088256836, 3.780419, 0.1317749)

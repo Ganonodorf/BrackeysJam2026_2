@@ -22,11 +22,17 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "boss": "res://dialogues/characters/boss.dch",
+"butcher": "res://dialogues/characters/butcher.dch",
 "player": "res://dialogues/characters/player.dch"
 }
 directories/dtl_directory={
 "1_start": "res://dialogues/timelines/1_start.dtl",
 "2_keep_going": "res://dialogues/timelines/2_keep_going.dtl",
+"3_doing_great": "res://dialogues/timelines/3_doing_great.dtl",
+"4_questioning": "res://dialogues/timelines/4_questioning.dtl",
+"5_continue_working": "res://dialogues/timelines/5_continue_working.dtl",
+"6_door_open": "res://dialogues/timelines/6_door_open.dtl",
+"7_butcher": "res://dialogues/timelines/7_butcher.dtl",
 "placeholder": "res://dialogues/timelines/placeholder.dtl"
 }
 layout/style_directory={}

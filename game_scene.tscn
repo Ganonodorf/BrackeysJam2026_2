@@ -96,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015525818, 0, 0.001579880
 [node name="butcher" parent="." unique_id=1140961672 instance=ExtResource("8_miq82")]
 transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, -2.7017214, 0.031458348, 1.5411861)
 
-[node name="Skeleton3D" parent="butcher/Armature" parent_id_path=PackedInt32Array(1140961672, 299652251) index="0" unique_id=2068681049]
+[node name="Skeleton3D" parent="butcher/Armature" parent_id_path=PackedInt32Array(1140961672, 1330576240) index="0" unique_id=1862545625]
 bones/1/position = Vector3(-0.112234876, 4.5253186, -0.23278669)
 bones/2/rotation = Quaternion(0.09341887, 0.01902108, 0.001082112, 0.99544466)
 bones/4/rotation = Quaternion(0.3396357, 1.3686869e-09, 7.924179e-08, 0.94055706)

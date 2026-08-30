@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bs3m2llfiqag" path="res://models/entorno/entorno.glb" id="8_e35lh"]
 [ext_resource type="PackedScene" uid="uid://sel2lm6fy73i" path="res://models/butcher/butcher.glb" id="8_miq82"]
 [ext_resource type="PackedScene" uid="uid://dtnb0dfopjbrm" path="res://order/order_box_nueva.tscn" id="8_udeyl"]
+[ext_resource type="Script" uid="uid://b4f3q6nrqsp7i" path="res://models/butcher/butcher.gd" id="9_daj04"]
+[ext_resource type="AudioStream" uid="uid://ibqkre63iqhj" path="res://sounds/butcher.mp3" id="9_ueiaa"]
 [ext_resource type="PackedScene" uid="uid://dbt5k5g7k52r0" path="res://models/bodies/bodies1.glb" id="10_j5hk1"]
 [ext_resource type="PackedScene" uid="uid://d4l8aywlfey3x" path="res://models/bodies/bodies2.glb" id="11_ueiaa"]
 
@@ -95,6 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015525818, 0, 0.001579880
 
 [node name="butcher" parent="." unique_id=1140961672 instance=ExtResource("8_miq82")]
 transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, -2.7017214, 0.031458348, 1.5411861)
+script = ExtResource("9_daj04")
 
 [node name="Skeleton3D" parent="butcher/Armature" parent_id_path=PackedInt32Array(1140961672, 1330576240) index="0" unique_id=1862545625]
 bones/1/position = Vector3(-0.112234876, 4.5253186, -0.23278669)
@@ -122,6 +125,9 @@ bones/30/position = Vector3(1.1051583, 5.224305, 1.7764742)
 bones/33/rotation = Quaternion(0.3638862, 0.6062894, -0.6062894, -0.3638862)
 bones/34/position = Vector3(-1.2134092, 7.091359, 1.063205)
 bones/35/rotation = Quaternion(0.012401128, 0.70699805, -0.70699805, -0.012401128)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="butcher" unique_id=1546455835]
+stream = ExtResource("9_ueiaa")
 
 [node name="lights" type="Node3D" parent="." unique_id=820979001]
 

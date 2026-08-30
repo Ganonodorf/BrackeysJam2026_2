@@ -12,6 +12,7 @@ var current_order: Order
 @onready var new_order_button: OrderButton = $"../OrderButtonNewOrder"
 
 @onready var controller = $"../ProtoController"
+@onready var butcher = $"../butcher"
 
 var current_scene: int = 0
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start('1_start')
+	#Dialogic.start('1_start')
 	get_viewport().set_input_as_handled()
 
 func _create_new_order():
@@ -93,11 +95,11 @@ func _calculate_score():
 func _on_dialogic_signal(argument: String):
 	match argument:
 		"butchering":
-			print("butchering!")
+			butcher._start_butchering()
 		"door":
 			print("door!")
 		"camera":
-			print("camera!")
+			butcher._start_look()
 
 func _next_scene():
 	match current_scene:

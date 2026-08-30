@@ -1,3 +1,5 @@
 player: What the fuck?
 [signal arg="camera"]
 butcher: You should have trusted the boss, kid.
+[signal arg="end"]
+[wait time="1.0"]

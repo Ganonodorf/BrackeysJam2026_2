@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://ibqkre63iqhj" path="res://sounds/butcher.mp3" id="9_ueiaa"]
 [ext_resource type="PackedScene" uid="uid://dbt5k5g7k52r0" path="res://models/bodies/bodies1.glb" id="10_j5hk1"]
 [ext_resource type="PackedScene" uid="uid://d4l8aywlfey3x" path="res://models/bodies/bodies2.glb" id="11_ueiaa"]
+[ext_resource type="Script" uid="uid://bvhh6qou8e06" path="res://camera_tweener.gd" id="15_opqoc"]
+[ext_resource type="Script" uid="uid://k3t5hmb3tlmy" path="res://fade_tweener.gd" id="16_bpcsf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e35lh"]
 size = Vector3(4.409912, 1, 3.8416748)
@@ -26,6 +28,12 @@ size = Vector3(2.4006252, 0.15478516, 0.5878906)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_udeyl"]
 size = Vector3(10.108916, 0.15478516, 14.021851)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mlphb"]
+size = Vector3(0.77908325, 2.425293, 1.3705139)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpcsf"]
+font_size = 60
 
 [node name="Node3D" type="Node3D" unique_id=244791525]
 
@@ -80,11 +88,14 @@ freeze = true
 [node name="OrderButtonNewOrder" parent="." unique_id=132984704 instance=ExtResource("4_e35lh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82477546, 0.87614167, 4.8025002)
 
-[node name="ProtoController" parent="." unique_id=320834418 instance=ExtResource("5_miq82")]
+[node name="ProtoController" parent="." unique_id=320834418 groups=["player"] instance=ExtResource("5_miq82")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -0.13660148, 0.28282797, 5.9301257)
 collision_layer = 2
 can_jump = false
 base_speed = 2.0
+
+[node name="Camera3D" parent="ProtoController/Head" parent_id_path=PackedInt32Array(320834418, 73843834) index="0" unique_id=2014620528]
+current = true
 
 [node name="Boundary" type="Area3D" parent="." unique_id=1570854555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6122074, 0)
@@ -100,11 +111,11 @@ script = ExtResource("8_mlphb")
 [node name="door_06_002" parent="entorno" index="21" unique_id=1881434898]
 transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, -0.01, 0, 0.01, -4.3711387e-10, 0.995782, 0.98031443, 2.9772987)
 
-[node name="butcher" parent="." unique_id=1140961672 instance=ExtResource("8_miq82")]
+[node name="butcher" parent="." unique_id=960742391 instance=ExtResource("8_miq82")]
 transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, -2.7017214, 0.031458348, 1.5411861)
 script = ExtResource("9_daj04")
 
-[node name="Skeleton3D" parent="butcher/Armature" parent_id_path=PackedInt32Array(1140961672, 1330576240) index="0" unique_id=1862545625]
+[node name="Skeleton3D" parent="butcher/Armature" parent_id_path=PackedInt32Array(960742391, 1694134262) index="0" unique_id=1700362910]
 bones/1/position = Vector3(-0.112234876, 4.5253186, -0.23278669)
 bones/2/rotation = Quaternion(0.09341887, 0.01902108, 0.001082112, 0.99544466)
 bones/4/rotation = Quaternion(0.3396357, 1.3686869e-09, 7.924179e-08, 0.94055706)
@@ -133,6 +144,7 @@ bones/35/rotation = Quaternion(0.012401128, 0.70699805, -0.70699805, -0.01240112
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="butcher" unique_id=1546455835]
 stream = ExtResource("9_ueiaa")
+volume_db = -5.0
 
 [node name="lights" type="Node3D" parent="." unique_id=820979001]
 
@@ -197,12 +209,53 @@ transform = Transform3D(-0.345, -3.016086e-08, -1.318373e-15, 0, -1.508043e-08, 
 [node name="bodies4" parent="." unique_id=1149144995 instance=ExtResource("11_ueiaa")]
 transform = Transform3D(-0.117996946, -0.05071511, -0.32020256, 0, 0.34075248, -0.05396989, 0.32419395, -0.018458791, -0.116544195, -1.5805703, 0.39265954, 0.7523701)
 
+[node name="EndCollision" type="Area3D" parent="." unique_id=1257875718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9726472)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndCollision" unique_id=1826510928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5628027, 0.72812533, 0.27889585)
+shape = SubResource("BoxShape3D_mlphb")
+
+[node name="CameraTweener" type="Node3D" parent="." unique_id=1674250258]
+script = ExtResource("15_opqoc")
+
+[node name="CameraButcher1" type="Camera3D" parent="CameraTweener" unique_id=381717459]
+transform = Transform3D(-4.094965e-08, -0.349815, 0.93681884, -1.5290897e-08, 0.93681884, 0.349815, -1, 1.7763568e-15, -4.3711392e-08, -0.15941238, 1.5926282, 1.9567513)
+
+[node name="CameraButcher2" type="Camera3D" parent="CameraTweener" unique_id=1487941554]
+transform = Transform3D(-4.236399e-08, -0.2463732, 0.9691751, -1.07693126e-08, 0.9691751, 0.2463732, -1, 2.6645353e-15, -4.3711392e-08, -1.1984583, 1.6716821, 1.6564136)
+fov = 14.4
+
+[node name="FadeTweener" type="CanvasLayer" parent="." unique_id=449120380]
+visible = false
+script = ExtResource("16_bpcsf")
+
+[node name="Fade" type="ColorRect" parent="FadeTweener" unique_id=104892774]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="FadeTweener" unique_id=1776837404]
+visible = false
+offset_right = 555.0
+offset_bottom = 49.0
+text = "Thank you for playing the game!
+I hope you liked it,
+you can close the game with Ctrl+P."
+label_settings = SubResource("LabelSettings_bpcsf")
+
 [connection signal="order_fulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_fulfilled"]
 [connection signal="order_unfulfilled" from="OrderBox" to="JamGame" method="_on_order_box_order_unfulfilled"]
 [connection signal="pressed" from="OrderButton" to="JamGame" method="_on_order_button_pressed"]
 [connection signal="pressed" from="OrderButtonNewOrder" to="JamGame" method="_on_order_button_new_order_pressed"]
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_body_entered"]
+[connection signal="body_entered" from="EndCollision" to="JamGame" method="_on_end_collision_body_entered"]
 
 [editable path="OrderBox"]
+[editable path="ProtoController"]
 [editable path="entorno"]
 [editable path="butcher"]

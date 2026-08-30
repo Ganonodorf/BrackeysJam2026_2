@@ -16,6 +16,9 @@ var current_order: Order
 
 @onready var entorno = $"../entorno"
 
+@onready var camera_tweener = $"../CameraTweener"
+@onready var fade_tweener = $"../FadeTweener"
+
 var current_scene: int = 0
 
 var number_of_demanded_orders: int = 0
@@ -30,9 +33,12 @@ func _ready() -> void:
 	new_order_button._disable()
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	Dialogic.start('6_door_open')
-	#Dialogic.start('1_start')
+	Dialogic.start('1_start')
 	get_viewport().set_input_as_handled()
+
+func _process(delta):
+	if Input.is_action_pressed("exit_game"):
+		get_tree().quit()
 
 func _create_new_order():
 	current_order = order_generator._create_order(5, 5)
@@ -101,7 +107,11 @@ func _on_dialogic_signal(argument: String):
 		"door":
 			entorno._open_door()
 		"camera":
+			camera_tweener._change_camera_2()
 			butcher._start_look()
+		"end":
+			fade_tweener.visible = true
+			fade_tweener._fade_out()
 
 func _next_scene():
 	match current_scene:
@@ -144,6 +154,10 @@ func _next_scene():
 			number_of_demanded_orders = 0
 			number_of_current_orders = 0
 			new_order_button._disable()
-		12:
-			Dialogic.start('7_butcher')
-			get_viewport().set_input_as_handled()
+
+
+func _on_end_collision_body_entered(body: Node3D) -> void:
+	if(body.is_in_group('player')):
+		camera_tweener._change_camera_1()
+		Dialogic.start('7_butcher')
+		get_viewport().set_input_as_handled()

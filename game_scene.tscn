@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://brwlwv18xj5nu" path="res://boundary.gd" id="7_6e45b"]
 [ext_resource type="PackedScene" uid="uid://bs3m2llfiqag" path="res://models/entorno/entorno.glb" id="8_e35lh"]
 [ext_resource type="PackedScene" uid="uid://sel2lm6fy73i" path="res://models/butcher/butcher.glb" id="8_miq82"]
+[ext_resource type="Script" uid="uid://ce5n1642v5tnk" path="res://models/entorno/entorno.gd" id="8_mlphb"]
 [ext_resource type="PackedScene" uid="uid://dtnb0dfopjbrm" path="res://order/order_box_nueva.tscn" id="8_udeyl"]
 [ext_resource type="Script" uid="uid://b4f3q6nrqsp7i" path="res://models/butcher/butcher.gd" id="9_daj04"]
 [ext_resource type="AudioStream" uid="uid://ibqkre63iqhj" path="res://sounds/butcher.mp3" id="9_ueiaa"]
@@ -92,8 +93,12 @@ script = ExtResource("7_6e45b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=1915725925]
 shape = SubResource("BoxShape3D_kdryc")
 
-[node name="entorno" parent="." unique_id=541242417 instance=ExtResource("8_e35lh")]
+[node name="entorno" parent="." unique_id=1737384483 instance=ExtResource("8_e35lh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015525818, 0, 0.0015798807)
+script = ExtResource("8_mlphb")
+
+[node name="door_06_002" parent="entorno" index="21" unique_id=1881434898]
+transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, -0.01, 0, 0.01, -4.3711387e-10, 0.995782, 0.98031443, 2.9772987)
 
 [node name="butcher" parent="." unique_id=1140961672 instance=ExtResource("8_miq82")]
 transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, -2.7017214, 0.031458348, 1.5411861)
@@ -199,4 +204,5 @@ transform = Transform3D(-0.117996946, -0.05071511, -0.32020256, 0, 0.34075248, -
 [connection signal="body_entered" from="Boundary" to="Boundary" method="_on_body_entered"]
 
 [editable path="OrderBox"]
+[editable path="entorno"]
 [editable path="butcher"]

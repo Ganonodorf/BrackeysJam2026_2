@@ -14,6 +14,8 @@ var current_order: Order
 @onready var controller = $"../ProtoController"
 @onready var butcher = $"../butcher"
 
+@onready var entorno = $"../entorno"
+
 var current_scene: int = 0
 
 var number_of_demanded_orders: int = 0
@@ -28,7 +30,7 @@ func _ready() -> void:
 	new_order_button._disable()
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	Dialogic.start('1_start')
+	Dialogic.start('6_door_open')
 	#Dialogic.start('1_start')
 	get_viewport().set_input_as_handled()
 
@@ -97,7 +99,7 @@ func _on_dialogic_signal(argument: String):
 		"butchering":
 			butcher._start_butchering()
 		"door":
-			print("door!")
+			entorno._open_door()
 		"camera":
 			butcher._start_look()
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d26pjbwiaxiax"
 path.s3tc="res://.godot/imported/entorno_textures.png-8611d2ce4a6c9dd9e0255239ace2e05e.s3tc.ctex"
+path.etc2="res://.godot/imported/entorno_textures.png-8611d2ce4a6c9dd9e0255239ace2e05e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/entorno/entorno_textures.png"
-dest_files=["res://.godot/imported/entorno_textures.png-8611d2ce4a6c9dd9e0255239ace2e05e.s3tc.ctex"]
+dest_files=["res://.godot/imported/entorno_textures.png-8611d2ce4a6c9dd9e0255239ace2e05e.s3tc.ctex", "res://.godot/imported/entorno_textures.png-8611d2ce4a6c9dd9e0255239ace2e05e.etc2.ctex"]
 
 [params]
 

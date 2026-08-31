@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjoawpsw3khii"
 path.s3tc="res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.s3tc.ctex"
+path.etc2="res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/butcher/butcher_texturas.png"
-dest_files=["res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.s3tc.ctex"]
+dest_files=["res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.s3tc.ctex", "res://.godot/imported/butcher_texturas.png-7eec848d19716d967641c12b21c08fda.etc2.ctex"]
 
 [params]
 

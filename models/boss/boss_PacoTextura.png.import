@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhltj81nuw73y"
 path.s3tc="res://.godot/imported/boss_PacoTextura.png-abfd3be19b77f77cc55f8efad63dcc6b.s3tc.ctex"
+path.etc2="res://.godot/imported/boss_PacoTextura.png-abfd3be19b77f77cc55f8efad63dcc6b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/boss/boss_PacoTextura.png"
-dest_files=["res://.godot/imported/boss_PacoTextura.png-abfd3be19b77f77cc55f8efad63dcc6b.s3tc.ctex"]
+dest_files=["res://.godot/imported/boss_PacoTextura.png-abfd3be19b77f77cc55f8efad63dcc6b.s3tc.ctex", "res://.godot/imported/boss_PacoTextura.png-abfd3be19b77f77cc55f8efad63dcc6b.etc2.ctex"]
 
 [params]
 

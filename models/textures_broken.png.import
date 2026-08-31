@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://curjo7mb0476o"
 path.s3tc="res://.godot/imported/textures_broken.png-ab5cf1c2f49c32bda9af31ffe8d0d178.s3tc.ctex"
+path.etc2="res://.godot/imported/textures_broken.png-ab5cf1c2f49c32bda9af31ffe8d0d178.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/textures_broken.png"
-dest_files=["res://.godot/imported/textures_broken.png-ab5cf1c2f49c32bda9af31ffe8d0d178.s3tc.ctex"]
+dest_files=["res://.godot/imported/textures_broken.png-ab5cf1c2f49c32bda9af31ffe8d0d178.s3tc.ctex", "res://.godot/imported/textures_broken.png-ab5cf1c2f49c32bda9af31ffe8d0d178.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcqs8ihy4gso"
 path.s3tc="res://.godot/imported/cart_corpse_the_darkest_red_5.png-c5a9810cb05caa495d62f6d1fc08d922.s3tc.ctex"
+path.etc2="res://.godot/imported/cart_corpse_the_darkest_red_5.png-c5a9810cb05caa495d62f6d1fc08d922.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/butcher/cart_corpse_the_darkest_red_5.png"
-dest_files=["res://.godot/imported/cart_corpse_the_darkest_red_5.png-c5a9810cb05caa495d62f6d1fc08d922.s3tc.ctex"]
+dest_files=["res://.godot/imported/cart_corpse_the_darkest_red_5.png-c5a9810cb05caa495d62f6d1fc08d922.s3tc.ctex", "res://.godot/imported/cart_corpse_the_darkest_red_5.png-c5a9810cb05caa495d62f6d1fc08d922.etc2.ctex"]
 
 [params]
 

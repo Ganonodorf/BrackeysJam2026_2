@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfsbqp13vqs82"
 path.s3tc="res://.godot/imported/egg_textures_broken.png-8ab74b1492f755df29d1c91cbb1374e6.s3tc.ctex"
+path.etc2="res://.godot/imported/egg_textures_broken.png-8ab74b1492f755df29d1c91cbb1374e6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/items/egg_textures_broken.png"
-dest_files=["res://.godot/imported/egg_textures_broken.png-8ab74b1492f755df29d1c91cbb1374e6.s3tc.ctex"]
+dest_files=["res://.godot/imported/egg_textures_broken.png-8ab74b1492f755df29d1c91cbb1374e6.s3tc.ctex", "res://.godot/imported/egg_textures_broken.png-8ab74b1492f755df29d1c91cbb1374e6.etc2.ctex"]
 
 [params]
 
